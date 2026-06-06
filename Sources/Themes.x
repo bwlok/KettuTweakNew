@@ -229,11 +229,13 @@ UIColor* getColor(NSString *name, NSString *kind) {
 
 //Perform Black Magic
 BOOL isThemeLight(UIColor *color) {
-  CGFloat r, g, b;
-  [color getRed:&r green:&g blue:&b alpha:NULL];
-  CGFloat luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-  if (luminance > 0.70) {
-    return TRUE;
+  if (color) {
+    CGFloat r, g, b;
+    [color getRed:&r green:&g blue:&b alpha:NULL];
+    CGFloat luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    if (luminance > 0.70) {
+        return TRUE;
+    }
   }
   return FALSE;
 }
